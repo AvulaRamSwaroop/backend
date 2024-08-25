@@ -10,8 +10,8 @@ const productRoutes = require("./routes/productRoute.js");
 
 const app = express();
 app.use(cors());
-const PORT = 4000;
-// process.env.PORT ||
+const PORT = process.env.PORT || 4000;
+//
 dotEnv.config();
 
 mongoose
