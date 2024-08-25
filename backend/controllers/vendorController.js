@@ -43,8 +43,11 @@ const vendorLogin = async (req, res) => {
     });
 
     const vendorId = vendor._id;
+    const vendorFirmId = vendor.firm[0]._id;
 
-    res.status(200).json({ success: "Login successful", token, vendorId });
+    res
+      .status(200)
+      .json({ success: "Login successful", token, vendorId, vendorFirmId });
     console.log(email, "this is token", token);
   } catch (error) {
     console.log(error);

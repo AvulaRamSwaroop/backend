@@ -2,15 +2,16 @@ const express = require("express");
 const dotEnv = require("dotenv");
 const mongoose = require("mongoose");
 const vendorRoutes = require("./routes/vendorRoutes");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const firmRoutes = require("./routes/firmRoutes");
 const path = require("path");
 const productRoutes = require("./routes/productRoute.js");
 
 const app = express();
-
+app.use(cors());
 const PORT = 4000;
-
+// process.env.PORT ||
 dotEnv.config();
 
 mongoose

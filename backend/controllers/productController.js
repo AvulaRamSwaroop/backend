@@ -2,13 +2,13 @@ const Product = require("../models/Product.js");
 const multer = require("multer");
 const path = require("path");
 const Firm = require("../models/Firm.js");
-const { read } = require("fs");
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "upload/");
+    cb(null, "uploads/"); // Destination folder where the uploaded images will be stored
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, Date.now() + path.extname(file.originalname)); // Generating a unique filename
   },
 });
 
@@ -41,6 +41,8 @@ const addProduct = async (req, res) => {
     res.status(200).json({ savedProduct });
   } catch (e) {
     console.log(e);
+    console.log("issue");
+
     return res.status(500).json({ error: "internal error" });
   }
 };
